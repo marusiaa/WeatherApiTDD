@@ -19,6 +19,7 @@ namespace WeatherApi.Tests.Unit
             RestClientStub restClientStub = new RestClientStub();
             WeatherClient weatherClient = new WeatherClient(restClientStub);
             var expectedResult = new WeatherInformation();
+            restClientStub.Execute_Value = expectedResult;
             
             // when
             var result = weatherClient.GetWeather();

@@ -19,7 +19,8 @@ namespace WeatherApi.Core
 
         public WeatherInformation GetWeather()
         {
-            return null;
+            var response = _restClient.Execute<WeatherInformation>(null);
+            return response.Data;
         }
 
     }

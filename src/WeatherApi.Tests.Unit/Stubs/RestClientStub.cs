@@ -15,6 +15,32 @@ namespace WeatherApi.Tests.Unit.Stubs
 {
     public class RestClientStub: IRestClient
     {
+        public Object Execute_Value { get; set; }
+
+        public IRestResponse<T> Execute<T>(IRestRequest request) where T : new()
+        {
+            return new RestResponse<T> {Data = (T)Execute_Value};
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         public RestRequestAsyncHandle ExecuteAsync(IRestRequest request, Action<IRestResponse, RestRequestAsyncHandle> callback)
         {
             throw new NotImplementedException();
@@ -30,10 +56,7 @@ namespace WeatherApi.Tests.Unit.Stubs
             throw new NotImplementedException();
         }
 
-        public IRestResponse<T> Execute<T>(IRestRequest request) where T : new()
-        {
-            throw new NotImplementedException();
-        }
+
 
         public byte[] DownloadData(IRestRequest request)
         {
